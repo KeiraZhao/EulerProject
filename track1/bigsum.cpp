@@ -11,6 +11,13 @@
 using namespace std;
 
 string bigsum(const string& s1, const string& s2) {
+    if (s1.length() < s2.length())
+        return rbigsum(s1, s2);
+    else 
+        return rbigsum(s2, s1);
+}
+
+string rbigsum(const string& s1, const string& s2) {
     // assuming s1 <= s2;
     string as1 = s1, as2 = s2;
     reverse(as1.begin(), as1.end());
@@ -23,7 +30,7 @@ string bigsum(const string& s1, const string& s2) {
     string sums(as2.length() + 1, 0);
     for (int i = 0; i < as2.length(); i++)
         sums[i] = as1[i] + as2[i];
-    for (int i = 0; i < sums.length(); i++) {
+    for (int i = 1; i < sums.length(); i++) {
         sums[i] += sums[i-1] / 10;
         sums[i-1] %= 10;
     }

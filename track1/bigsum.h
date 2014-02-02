@@ -14,6 +14,7 @@
 #include <algorithm>
 
 std::string bigsum(const std::string&, const std::string&);
+std::string rbigsum(const std::string&, const std::string&);
 
 
 #endif /* !__bigsum_h__ */
